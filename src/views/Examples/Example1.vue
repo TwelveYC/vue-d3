@@ -1,10 +1,10 @@
 <template>
-    <h2>这是例子</h2>
+    <h2>这是例子1</h2>
 </template>
 
 <script>
     export default {
-        name: "Examples"
+        name: "Example1"
     }
 </script>
 

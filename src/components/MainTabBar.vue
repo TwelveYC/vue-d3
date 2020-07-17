@@ -4,18 +4,17 @@
             <img src="@/assets/images/d3-logo.png" alt="d3" class="logo-img">
             <img src="@/assets/images/vue-logo.png" alt="vue" class="logo-img">
         </div>
-        <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-            <el-menu-item index="1">Home</el-menu-item>
+        <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" :router="true">
+            <el-menu-item index="/">Home</el-menu-item>
             <el-submenu index="2">
                 <template slot="title">Components</template>
-                <el-menu-item v-for="(item, index) in chartTypes" :index="getPlusOne(2,index)" :key="index">
+                <el-menu-item v-for="(item, index) in chartTypes" :index="item.href" :key="index">
                     <a :href="item.href" class="el-menu-item">{{item.name}}</a>
                 </el-menu-item>
             </el-submenu>
             <el-submenu index="3">
                 <template slot="title">Example</template>
-                <el-menu-item v-for="(item, index) in examples" :index="getPlusOne(2, index)" :key="index">
-                    <a :href="item.href" target="_blank" class="el-menu-item">{{item.name}}</a>
+                <el-menu-item v-for="(item, index) in examples" :index="item.href" :key="index">{{item.name}}
                 </el-menu-item>
             </el-submenu>
             <el-menu-item index="4"><a href="https://github.com/TwelveYC/vue-d3" target="_blank" title="Please Star Me">GitHub</a></el-menu-item>
@@ -72,13 +71,13 @@
                 }],
                 examples: [{
                     name: "Example1",
-                    href: "https://www.baidu.com/"
+                    href: "/example"
                 },{
                     name: "Example2",
-                    href: "https://www.baidu.com/",
+                    href: "/example",
                 },{
                     name: "Example3",
-                    href: "https://www.baidu.com/",
+                    href: "/example",
                 }]
             };
         },
@@ -86,9 +85,6 @@
             handleSelect(key, keyPath) {
                 console.log(key, keyPath);
             },
-            getPlusOne(tab,index) {
-                return tab.toString() + "-"+(index+1).toString();
-            }
         }
     }
 </script>

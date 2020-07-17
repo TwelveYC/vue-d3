@@ -4,7 +4,6 @@
           <el-header>
               <main-tab-bar>
               </main-tab-bar>
-
           </el-header>
           <keep-alive>
               <el-main>
